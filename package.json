@@ -1,0 +1,17 @@
+{
+  "name": "algorithm-exercises",
+  "version": "1.0.0",
+  "description": "contains algorithm exercises",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest --run"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.8.4",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
