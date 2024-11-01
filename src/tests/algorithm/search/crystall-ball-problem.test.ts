@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { crystalBallProblem } from "../../algorithm/search/crystal-ball-problem";
+import { crystalBallProblem } from "../../../algorithm/search/crystal-ball-problem";
 
 describe("Test for crystabl problem", () => {
     test("This should return 3", () => {

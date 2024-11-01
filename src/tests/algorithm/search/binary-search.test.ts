@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { binarySearch } from "../../algorithm/search/binary-search";
+import { binarySearch } from "../../../algorithm/search/binary-search";
 
 const sortedArray = [1, 4, 5, 6, 7, 8, 10, 12, 23, 66, 99];
 describe("Test for binary search algorithm", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { linearSearch } from "../../algorithm/search/linear-search";
+import { linearSearch } from "../../../algorithm/search/linear-search";
 
 const inputArray = [11, 4, 52, 36, 7, 238, 10, 12, 23, 66, 99];
 describe("Test for linear search algorithm", () => {
