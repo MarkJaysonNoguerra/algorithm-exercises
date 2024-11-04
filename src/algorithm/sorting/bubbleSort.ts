@@ -1,14 +1,14 @@
 // O(n squared)
 export const bubbleSort = (input: number[]): number[] => {
-    for (let a = 0; a < input.length; a++) {
-        for (let b = a+1; b < input.length; b++) {
-             if (input[a] > input[b]) {
-                const temp = input[a];
-                input[a] = input[b];
-                input[b] = temp;
-             }
-        }
+  for (let i = 0; i < input.length; i++) {
+    for (let j = 0; j < input.length - 1 - i; j++) {
+      if (input[j] > input[j + 1]) {
+        const temp = input[j];
+        input[j] = input[j + 1];
+        input[j + 1] = temp;
+      }
     }
+  }
 
-    return input;
-}
+  return input;
+};
