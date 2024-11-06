@@ -1,4 +1,3 @@
-import { Console } from "console";
 import { LinkedList } from "../../data-structure/linked-list";
 import { describe, expect, test } from "vitest";
 

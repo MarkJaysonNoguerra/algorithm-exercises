@@ -44,8 +44,16 @@ export class LinkedList {
         if (curretNode.value === value) {
             if (previousNode === null) {
                 this.head = curretNode.next;
+
+                // manage memory 
+                //(not useful in js but in other language this is required)
+                curretNode.next = null;
             } else {
                 previousNode.next = curretNode.next;
+                
+                // manage memory 
+                //(not useful in js but in other language this is required)
+                curretNode.next = null;
             }
 
             return result;
