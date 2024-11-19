@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { bubbleSort } from "../../../algorithm/sorting/bubbleSort";
+import { quickSort } from "../../../algorithm/sorting/quick-sort";
 
-describe("Test for bubble sort", () => {
+describe("Test for quick sort", () => {
     const inputs = [
         [1, 234, 24,5,23,13,523,5],
         [123,51,51,63,63,14],
@@ -14,7 +14,7 @@ describe("Test for bubble sort", () => {
         test(`test input ${JSON.stringify(input)}`, () => {
             const sorted = [...input];
             sorted.sort((a, b) => a - b);
-            expect(bubbleSort(input)).toStrictEqual(sorted);
+            expect(quickSort(input)).toStrictEqual(sorted);
         });
     })
 })
