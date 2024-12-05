@@ -1,4 +1,9 @@
 export const linearSearch = (list: number[], value: number): boolean => {
-  // implement this again starting in december
-  return true;
+  for (const item of list) {
+    if (item === value) {
+      return true;
+    }
+  }
+
+  return false;
 };

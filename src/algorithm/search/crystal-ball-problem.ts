@@ -13,6 +13,19 @@
  * answer: 3
  */
 export const crystalBallProblem = (input: boolean[]): number => {
-    // implement this again starting in december    
-    return 0;
+    const sqrtIndex = Math.floor(Math.sqrt(input.length - 1));
+    let index = sqrtIndex;
+
+    while (index < input.length) {
+        if (input[index]) {
+            for (let i = index - sqrtIndex; i <= index && i < input.length; i++) {
+                if (input[i]) {
+                    return i;
+                }
+            }
+        }
+
+        index += sqrtIndex;
+    }
+    return -1;
 }
