@@ -56,7 +56,7 @@ describe("Test for doubly linked list", () => {
     ]);
   });
 
-  test("insertAt method at first", () => {
+  test("insertAt method for index 0", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .prepend(123)
@@ -77,7 +77,7 @@ describe("Test for doubly linked list", () => {
   });
 
 
-  test("insertAt method at the end", () => {
+  test("insertAt method at the last index", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .prepend(123)
@@ -97,7 +97,7 @@ describe("Test for doubly linked list", () => {
     ]);
   });
 
-  test("insert method first", () => {
+  test("insert method at index 0", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .insertAt(50, 0);
@@ -106,7 +106,7 @@ describe("Test for doubly linked list", () => {
     expect(linkedList.getContents()).toStrictEqual([50]);
   });
 
-  test("insert method out of range", () => {
+  test("insert method for out of range index", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .insertAt(50, 0);
@@ -134,7 +134,7 @@ describe("Test for doubly linked list", () => {
     ]);
   });
 
-  test("remove last item using remove method", () => {
+  test("remove method for last node", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .prepend(123)
@@ -154,7 +154,7 @@ describe("Test for doubly linked list", () => {
     ]);
   });
 
-  test("remove method the last", () => {
+  test("remove method for second to the last node", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .prepend(123)
@@ -174,7 +174,7 @@ describe("Test for doubly linked list", () => {
     ]);
   });
 
-  test("remove method for only 1 item", () => {
+  test("remove method for single node linked list", () => {
     const linkedList = new DoublyLinkedList<number>();
     linkedList
       .prepend(123);
@@ -185,19 +185,27 @@ describe("Test for doubly linked list", () => {
   });
 
 
-  // test("removeAt method", () => {
-  //   const linkedList = new DoublyLinkedList<number>();
-  //   linkedList.append(1).append(2).append(3).append(1323).append(9).removeAt(3);
+  test("removeAt method", () => {
+    const linkedList = new DoublyLinkedList<number>();
+    linkedList.append(1).append(2).append(3).append(1323).append(9).removeAt(3);
 
-  //   expect(linkedList.getSize()).toBe(4);
-  //   expect(linkedList.getContents()).toStrictEqual([1, 2, 3, 9]);
-  // });
+    expect(linkedList.getSize()).toBe(4);
+    expect(linkedList.getContents()).toStrictEqual([1, 2, 3, 9]);
+  });
 
-  // test("get method", () => {
-  //   const linkedList = new DoublyLinkedList<number>();
-  //   linkedList.prepend(1).prepend(2).prepend(3).prepend(1323).prepend(9);
+  test("removeAt method for first index", () => {
+    const linkedList = new DoublyLinkedList<number>();
+    linkedList.append(1).append(2).append(3).append(1323).append(9).removeAt(0);
 
-  //   expect(linkedList.get(2)).toBe(3);
-  //   expect(linkedList.getContents()).toStrictEqual([9, 1323, 3, 2, 1]);
-  // });
+    expect(linkedList.getSize()).toBe(4);
+    expect(linkedList.getContents()).toStrictEqual([2, 3, 1323, 9]);
+  });
+
+  test("removeAt method for last index", () => {
+    const linkedList = new DoublyLinkedList<number>();
+    linkedList.append(1).append(2).append(3).append(1323).append(9).removeAt(4);
+
+    expect(linkedList.getSize()).toBe(4);
+    expect(linkedList.getContents()).toStrictEqual([1, 2, 3, 1323]);
+  });
 });

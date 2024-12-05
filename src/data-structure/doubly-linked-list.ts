@@ -97,10 +97,10 @@ export class DoublyLinkedList<T> {
       this.length--;
       return this.length;
     }
-    
+
     let currentNode = this.head;
     let currentIndex = 0;
-    while(currentNode?.value) {
+    while (currentNode?.value) {
       if (currentNode.value === value) {
         this.length--;
 
@@ -120,30 +120,52 @@ export class DoublyLinkedList<T> {
       currentNode = currentNode.next;
       currentIndex++;
     }
-    
+
     return undefined;
   }
 
-  removeAt(index: number): this {
-    return this
-  }
+  removeAt(index: number): T | undefined {
+    if (index > this.length) {
+      throw Error("out of range index");
+    }
 
-  private getAt(index: number): Node<T> {
-
-    let currentNode = this.head;
-    let currentIndex = 0;
-
-    while (currentNode?.value) {
-      if (currentIndex === index) {
-        return currentNode;
+    if (index === 0) {
+      this.length--;
+      const value = this.head?.value;
+      this.head = this.head?.next;
+      if (this.head) {
+        this.head.previous = undefined;
       }
 
-      currentNode = currentNode.next;
-      currentIndex++;
+      return value;
+    }
+
+    if (index === this.length - 1) {
+      this.length--;
+      const value = this.tail?.value;
+      this.tail = this.tail?.previous;
+      if (this.tail) {
+        this.tail.next = undefined;
+      }
+
+      return value;
     }
 
 
-    throw Error("out of range index");
+    const node = this.getAt(index);
+
+    this.length--;
+    const left = node.previous;
+    if (left) {
+      left.next = node.next;
+    }
+
+    const right = node.next;
+    if (right) {
+      right.previous = node.previous;
+    }
+
+    return node.value;
   }
 
   getContents(): T[] {
@@ -161,5 +183,22 @@ export class DoublyLinkedList<T> {
 
   getSize(): number {
     return this.length;
+  }
+
+  private getAt(index: number): Node<T> {
+
+    let currentNode = this.head;
+    let currentIndex = 0;
+
+    while (currentNode?.value) {
+      if (currentIndex === index) {
+        return currentNode;
+      }
+
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+
+    throw Error("out of range index");
   }
 }
