@@ -5,14 +5,6 @@ type Node<T> = {
 }
 
 export class DoublyLinkedList<T> {
-
-  private head?: Node<T>
-
-  private tail?: Node<T>;
-
-  private length = 0;
-
-
   append(value: T): this {
     return this
   }
@@ -39,7 +31,7 @@ export class DoublyLinkedList<T> {
   }
 
   getSize(): number {
-    return this.length;
+    return 0;
   }
 
   private getAt(index: number): Node<T> {

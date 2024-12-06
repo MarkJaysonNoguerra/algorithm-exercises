@@ -1,90 +1,31 @@
-export class LinkedList {
-  private head: Node | null = null;
-  private size = 0;
+type Node<T> = {
+  next?: Node<T>;
+  value: T
+}
+
+export class LinkedList<T> {
+  private head: Node<T> | null = null;
+  private length = 0;
 
   constructor() {}
 
-  addNode(value: number): this {
-    const newNode = new Node(value);
-    if (this.head === null) {
-      this.head = newNode;
-    } else {
-      let curretNode = this.head;
-      while (curretNode.next != null) {
-        curretNode = curretNode.next;
-      }
-      curretNode.next = newNode;
-    }
-
-    this.size++;
+  addNode(value: T): this {
     return this;
   }
 
   findNode(value: number): number {
-    let result = 0;
-    let currentNode = this.head;
-
-    while (currentNode !== null) {
-      if (currentNode.value === value) {
-        return result;
-      }
-
-      currentNode = currentNode.next;
-      result++;
-    }
     return -1;
   }
 
   removeNode(value: number): number {
-    let previousNode: Node | null = null;
-    let curretNode = this.head;
-    let result = 0;
-
-    while (curretNode && curretNode?.value) {
-        if (curretNode.value === value) {
-            if (previousNode === null) {
-                this.head = curretNode.next;
-
-                // manage memory 
-                //(not useful in js but in other language this is required)
-                curretNode.next = null;
-            } else {
-                previousNode.next = curretNode.next;
-                
-                // manage memory 
-                //(not useful in js but in other language this is required)
-                curretNode.next = null;
-            }
-
-            return result;
-        }
-
-        previousNode = curretNode;
-        curretNode = curretNode.next;
-        result++;
-    }
-
     return -1;
   }
 
   getContents(): number[] {
-    const result = [];
-    let currentNode = this.head;
-    while (currentNode && currentNode.value !== null) {
-      result.push(currentNode?.value);
-      currentNode = currentNode.next;
-    }
-
-    return result;
+    return [];
   }
 
   getSize(): number {
-    return this.size;
+    return this.length;
   }
-}
-
-export class Node {
-  public next: Node | null = null;
-
-  constructor(public value: number) {}
 }
