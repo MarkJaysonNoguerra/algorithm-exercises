@@ -31,4 +31,9 @@ describe("Test for crystabl problem", () => {
         const input = [false, false, false, false];
         expect(crystalBallProblem(input)).toBe(-1);
     });
+
+    test("This should return 3", () => {
+        const input = [false, false, false, true];
+        expect(crystalBallProblem(input)).toBe(3);
+    });
 });

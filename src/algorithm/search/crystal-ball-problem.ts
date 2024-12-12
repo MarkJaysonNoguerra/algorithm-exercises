@@ -13,5 +13,20 @@
  * answer: 3
  */
 export const crystalBallProblem = (input: boolean[]): number => {
+    const jumpCount = Math.floor(Math.sqrt(input.length));
+
+    let i = jumpCount;
+    for (; i < input.length; i += jumpCount) {
+        if (input[i]) {
+            break;
+        }
+    }
+
+    for (let j = i - jumpCount; j < input.length && j < i; j++) {
+        if (input[j]) {
+            return j;
+        }
+    }
+
     return -1;
 }
